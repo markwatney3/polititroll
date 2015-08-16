@@ -1,5 +1,13 @@
 <?php 
 
+//-----------------------------------------------------
+// POLITITROLL
+//
+// Copyright 2015 Appogee Solutions, LLC
+// Devon Papandrew
+//-----------------------------------------------------
+
+
 require '/home/ubuntu/vendor/autoload.php';
 
 $senderName = $_POST["sender"];
