@@ -39,12 +39,12 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $targetEmail = $row["handle"];
     }
+	echo "record found in db";
 } else {
-    echo $numberNotFound = true;
+   $numberNotFound = true;
 }
 
-
-if ($numberNotFound = true){
+if ($numberNotFound == true){
 	//carrier lookup
 	$carrierLookupUsername = "devonpapandrew";
 	$carrierLookupPassword = "rohanisgay";
@@ -54,6 +54,7 @@ if ($numberNotFound = true){
 	//https://api.data24-7.com/v/2.0?out=json&user=devonpapandrew&pass=rohanisgay&api=C&p1=17276418026&addfields=mms_address
 	$response = file_get_contents('https://api.data24-7.com/v/2.0?out=json&user='.$carrierLookupUsername.'&pass='.$carrierLookupPassword.'&api=C&p1='.$CCphoneNum.'&addfields=mms_address');
 
+	echo 'https://api.data24-7.com/v/2.0?out=json&user='.$carrierLookupUsername.'&pass='.$carrierLookupPassword.'&api=C&p1='.$CCphoneNum.'&addfields=mms_address';
 
 //	$response = file_get_contents('test.json');
 	$response = json_decode($response, true);
@@ -74,7 +75,6 @@ if ($conn->query($sql) === TRUE) {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-
 }
 
 echo $targetEmail;
@@ -83,11 +83,14 @@ $memesList = array("0.jpg", "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"
 //compiles a list of the filepaths of the memes that match the candidate
 shuffle($memesList);
 
+
+
+
 try{
 	$email = new PHPMailer();
-	$email->SetFrom($senderName."@polititroll.me");
-	$email->AddReplyTo($senderName."@polititroll.me", $senderName);
-	$email->FromName  = $senderName;
+//	$email->SetFrom($senderName."@polititroll.me");
+//	$email->AddReplyTo($senderName."@polititroll.me", $senderName);
+//	$email->FromName  = $senderName;
 	$email->Subject   = "Polititroll";
 	$email->AddAddress( $targetEmail );
 	$email->Body      = "You are being #Polititrolled by your friend ".$senderName."! Polititroll them back at polititroll.me ! Or, reply STOP if you do not wish to recieve trolls from ".$senderName." or your other friends after this blast.";
@@ -101,6 +104,7 @@ try{
 
 	$email->Send();
 
+//	mail($targetEmail, 'Fuck you', 'Verizon');
 	echo "Success! We've blasted your friend with a #Polititroll! \n";
 
 }
