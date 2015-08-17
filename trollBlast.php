@@ -27,9 +27,9 @@ $conn = new mysqli($servername, $username, $password, $dbName);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
+// echo "Connected successfully";
 
-$sql= "SELECT handle FROM Carrier WHERE phone_number = ".$phoneNumber;
+$sql= "SELECT handle, carrier FROM Carrier WHERE phone_number = ".$phoneNumber;
 $result = $conn->query($sql);
 
 var_dump($result);
@@ -38,8 +38,10 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         $targetEmail = $row["handle"];
+		$carrier = $row["carrier"];
     }
-	echo "record found in db";
+//	echo "record found in db";
+//	echo $carrier;
 } else {
    $numberNotFound = true;
 }
@@ -67,10 +69,10 @@ if ($numberNotFound == true){
 
 	$sql = "INSERT INTO Carrier (phone_number, wireless, carrier, country, handle) VALUES ('$phoneNumber', '$wireless', '$carrier', '$country', '$targetEmail')";
 
-	echo $sql;
+
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+//    echo "New record created successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
@@ -84,27 +86,29 @@ $memesList = array("0.jpg", "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"
 shuffle($memesList);
 
 
-
-
 try{
 	$email = new PHPMailer();
-//	$email->SetFrom($senderName."@polititroll.me");
-//	$email->AddReplyTo($senderName."@polititroll.me", $senderName);
-//	$email->FromName  = $senderName;
+
+	if ($carrier == "ATT Mobility"){
+
+		$email->SetFrom($senderName."@polititroll.me");
+		$email->AddReplyTo($senderName."@polititroll.me", $senderName);
+		$email->FromName  = $senderName;
+	}
+
 	$email->Subject   = "Polititroll";
 	$email->AddAddress( $targetEmail );
 	$email->Body      = "You are being #Polititrolled by your friend ".$senderName."! Polititroll them back at polititroll.me ! Or, reply STOP if you do not wish to recieve trolls from ".$senderName." or your other friends after this blast.";
 
 	for($i=0; $i<5; $i++){
-	
+
 		$file_to_attach = 'images/'.$memesList[$i];
 		$email->AddAttachment($file_to_attach);
-	
 	}
 
 	$email->Send();
 
-//	mail($targetEmail, 'Fuck you', 'Verizon');
+
 	echo "Success! We've blasted your friend with a #Polititroll! \n";
 
 }
