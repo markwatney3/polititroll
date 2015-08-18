@@ -32,7 +32,6 @@ if ($conn->connect_error) {
 $sql= "SELECT handle, carrier FROM Carrier WHERE phone_number = ".$phoneNumber;
 $result = $conn->query($sql);
 
-var_dump($result);
 
 if ($result->num_rows > 0) {
     // output data of each row
@@ -78,8 +77,6 @@ if ($conn->query($sql) === TRUE) {
 }
 
 }
-
-echo $targetEmail;
 
 $memesList = array("0.jpg", "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg", "13.jpg", "14.jpg");
 //compiles a list of the filepaths of the memes that match the candidate
