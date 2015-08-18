@@ -10,24 +10,20 @@
 
 
 require '/home/ubuntu/vendor/autoload.php';
+require 'connectionString/php';
 
 $senderName = $_POST["sender"];
-$candidate = $_POST["candidate"];
+$candidate = "none"; //$_POST["candidate"];
 $phoneNumber = $_POST["phone"];
 
-$servername = "polititroll.cqre5u0pvjqm.us-east-1.rds.amazonaws.com";
-$username = "polititroll";
-$password = "rohanisgay";
-$dbName = "polititroll";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbName);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($_POST["troll"] == "Troll") {
+	$troll = 1;
 }
-// echo "Connected successfully";
+
+else if ($_POST["applaud"] == "Applaud"){
+	$troll = 0;
+}
+
 
 $sql= "SELECT handle, carrier FROM Carrier WHERE phone_number = ".$phoneNumber;
 $result = $conn->query($sql);
@@ -38,8 +34,9 @@ if ($result->num_rows > 0) {
         $targetEmail = $row["handle"];
 		$carrier = $row["carrier"];
     }
-//	echo "record found in db";
-//	echo $carrier;
+
+	echo "got data";
+
 } else {
    $numberNotFound = true;
 }
@@ -54,8 +51,6 @@ if ($numberNotFound == true){
 	//https://api.data24-7.com/v/2.0?out=json&user=devonpapandrew&pass=rohanisgay&api=C&p1=17276418026&addfields=mms_address
 	$response = file_get_contents('https://api.data24-7.com/v/2.0?out=json&user='.$carrierLookupUsername.'&pass='.$carrierLookupPassword.'&api=C&p1='.$CCphoneNum.'&addfields=mms_address');
 
-	echo 'https://api.data24-7.com/v/2.0?out=json&user='.$carrierLookupUsername.'&pass='.$carrierLookupPassword.'&api=C&p1='.$CCphoneNum.'&addfields=mms_address';
-
 //	$response = file_get_contents('test.json');
 	$response = json_decode($response, true);
 
@@ -67,8 +62,6 @@ if ($numberNotFound == true){
 
 	$sql = "INSERT INTO Carrier (phone_number, wireless, carrier, country, handle) VALUES ('$phoneNumber', '$wireless', '$carrier', '$country', '$targetEmail')";
 
-
-
 if ($conn->query($sql) === TRUE) {
 //    echo "New record created successfully";
 } else {
@@ -77,7 +70,6 @@ if ($conn->query($sql) === TRUE) {
 
 }
 
-echo $targetEmail;
 
 $memesList = array("0.jpg", "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg", "13.jpg", "14.jpg");
 //compiles a list of the filepaths of the memes that match the candidate
@@ -116,6 +108,17 @@ catch (phpmailerException $e) {
 catch (Exception $e) {
   	echo $e->getMessage();
 }
+
+
+$sql = "INSERT INTO Log (phone_number, sender_name, candidate, troll) VALUES ('$phoneNumber', '$senderName', '$candidate','$troll')";
+
+if ($conn->query($sql) === TRUE) {
+//	echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
 
 
 ?> 
