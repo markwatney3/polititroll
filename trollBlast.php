@@ -15,6 +15,15 @@ $senderName = $_POST["sender"];
 $candidate = $_POST["candidate"];
 $phoneNumber = $_POST["phone"];
 
+if ($_POST["troll"] == "Troll") {
+	$troll = 1;
+}
+
+else if ($_POST["applaud"] == "Applaud"){
+	$troll = 0;
+}
+
+
 $servername = "polititroll.cqre5u0pvjqm.us-east-1.rds.amazonaws.com";
 $username = "polititroll";
 $password = "rohanisgay";
@@ -104,6 +113,14 @@ try{
 	}
 
 	$email->Send();
+
+	$sql = "INSERT INTO Log (phone_number, sender_name, candidate, troll) VALUES ('$phoneNumber', '$senderName', '$candidate','$troll')";
+
+if ($conn->query($sql) === TRUE) {
+//	echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
 
 	echo "Success! We've blasted your friend with a #Polititroll! \n";
