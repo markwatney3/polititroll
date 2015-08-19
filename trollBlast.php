@@ -51,7 +51,6 @@ if ($numberNotFound == true){
 	//https://api.data24-7.com/v/2.0?out=json&user=devonpapandrew&pass=rohanisgay&api=C&p1=17276418026&addfields=mms_address
 	$response = file_get_contents('https://api.data24-7.com/v/2.0?out=json&user='.$carrierLookupUsername.'&pass='.$carrierLookupPassword.'&api=C&p1='.$CCphoneNum.'&addfields=mms_address');
 
-	echo 'https://api.data24-7.com/v/2.0?out=json&user='.$carrierLookupUsername.'&pass='.$carrierLookupPassword.'&api=C&p1='.$CCphoneNum.'&addfields=mms_address';
 
 //	$response = file_get_contents('test.json');
 	$response = json_decode($response, true);
