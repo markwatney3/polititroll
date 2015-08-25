@@ -95,7 +95,7 @@ try{
 		$email->AddAddress( $targetEmail );
 		$email->Body      = "You are being #Polititrolled by your friend ".$senderName."! Polititroll them back at polititroll.me ! Or, reply STOP if you do not wish to recieve trolls from ".$senderName." or your other friends after this blast.";
 
-		for($i=0; $i<5; $i++){
+		for($i=0; $i<2; $i++){
 
 			$file_to_attach = 'images/'.$memesList[$i];
 			$email->AddAttachment($file_to_attach);
