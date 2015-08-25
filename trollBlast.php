@@ -25,7 +25,7 @@ else if ($_POST["applaud"] == "Applaud"){
 }
 
 
-$sql= "SELECT handle, carrier FROM Carrier WHERE phone_number = ".$phoneNumber;
+$sql= "SELECT handle, carrier, stop FROM Carrier WHERE phone_number = ".$phoneNumber;
 $result = $conn->query($sql);
 
 
@@ -34,9 +34,11 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $targetEmail = $row["handle"];
 		$carrier = $row["carrier"];
+		$stop = $row["stop"];
     }
 //	echo "record found in db";
 //	echo $carrier;
+
 } else {
    $numberNotFound = true;
 }
@@ -79,37 +81,41 @@ shuffle($memesList);
 
 
 try{
+	if ($stop=='n'){
 	$email = new PHPMailer();
 
-	if ($carrier == "ATT Mobility"){
+		if ($carrier == "ATT Mobility"){
 
-		$email->SetFrom($senderName."@polititroll.me");
-		$email->AddReplyTo($senderName."@polititroll.me", $senderName);
-		$email->FromName  = $senderName;
+			$email->SetFrom($senderName."@polititroll.me");
+			$email->AddReplyTo($senderName."@polititroll.me", $senderName);
+			$email->FromName  = $senderName;
+		}
+
+		$email->Subject   = "Polititroll";
+		$email->AddAddress( $targetEmail );
+		$email->Body      = "You are being #Polititrolled by your friend ".$senderName."! Polititroll them back at polititroll.me ! Or, reply STOP if you do not wish to recieve trolls from ".$senderName." or your other friends after this blast.";
+
+		for($i=0; $i<5; $i++){
+
+			$file_to_attach = 'images/'.$memesList[$i];
+			$email->AddAttachment($file_to_attach);
+		}
+
+		$email->Send();
+
+		$sql = "INSERT INTO Log (phone_number, sender_name, candidate, troll) VALUES ('$phoneNumber', '$senderName', '$candidate','$troll')";
+
+		if ($conn->query($sql) === TRUE) {
+		//	echo "New record created successfully";
+		} else {
+			echo "Error: " . $sql . "<br>" . $conn->error;
+		}
+
+		echo "Success! We've blasted your friend with a #Polititroll! \n";
+
 	}
 
-	$email->Subject   = "Polititroll";
-	$email->AddAddress( $targetEmail );
-	$email->Body      = "You are being #Polititrolled by your friend ".$senderName."! Polititroll them back at polititroll.me ! Or, reply STOP if you do not wish to recieve trolls from ".$senderName." or your other friends after this blast.";
-
-	for($i=0; $i<5; $i++){
-
-		$file_to_attach = 'images/'.$memesList[$i];
-		$email->AddAttachment($file_to_attach);
-	}
-
-	$email->Send();
-
-	$sql = "INSERT INTO Log (phone_number, sender_name, candidate, troll) VALUES ('$phoneNumber', '$senderName', '$candidate','$troll')";
-
-if ($conn->query($sql) === TRUE) {
-//	echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-
-	echo "Success! We've blasted your friend with a #Polititroll! \n";
+	else echo "Sorry, the user that you have selected has opted out of receiving Polititrolls.";
 
 }
 catch (phpmailerException $e) {
@@ -120,5 +126,4 @@ catch (Exception $e) {
 }
 
 
-?> 
-
+?>
