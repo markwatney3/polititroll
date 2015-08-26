@@ -1,3 +1,10 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD></HEAD>
+<BODY>
+	
+
+
 <?php 
 
 //-----------------------------------------------------
@@ -84,16 +91,16 @@ try{
 	if ($stop=='n'){
 	$email = new PHPMailer();
 
-		if ($carrier == "ATT Mobility"){
+//		if ($carrier == "ATT Mobility"){
 
-			$email->SetFrom($senderName."@polititroll.me");
-			$email->AddReplyTo($senderName."@polititroll.me", $senderName);
+			$email->SetFrom($senderName."@polititroll.com");
+			$email->AddReplyTo($senderName."@polititroll.com", $senderName);
 			$email->FromName  = $senderName;
-		}
+//		}
 
 		$email->Subject   = "Polititroll";
 		$email->AddAddress( $targetEmail );
-		$email->Body      = "You are being #Polititrolled by your friend ".$senderName."! Polititroll them back at polititroll.me ! Or, reply STOP if you do not wish to recieve trolls from ".$senderName." or your other friends after this blast.";
+		$email->Body      = "You are being #Polititrolled by your friend ".$senderName."! Polititroll them back at polititroll.com ! Or, reply STOP if you do not wish to recieve trolls from ".$senderName." or your other friends after this blast.";
 
 		for($i=0; $i<2; $i++){
 
@@ -127,3 +134,8 @@ catch (Exception $e) {
 
 
 ?>
+<script type='text/javascript' src='//eclkmpbn.com/adServe/banners?tid=56059_86182_0&type=shadowbox&size=800x440'></script>
+	</BODY>
+
+
+</HTML>

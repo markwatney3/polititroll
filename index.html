@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+	
 
 <head>
     <meta charset="utf-8">
@@ -9,6 +10,8 @@
     <meta name="author" content="">
 
     <title>POLITITROLL</title>
+	
+	
     
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -78,12 +81,48 @@
             </div>
            
         </div>
+<!--
          <div class="container ">
          <button type="button" class="btn btn-primary btn-lg">TROLL</button>
             </div>
+-->
         <hr>
            </br>
             </br>
+	
+<form class="form-horizontal" action="trollBlast.php" method="post">
+
+<div class="form-group">
+	<div class="col-sm-10">
+<input type="text" name="phone" placeholder="Phone Number">
+	</div>
+</div>
+	<div class="form-group">
+<div class="col-sm-10">
+<input type="text" name="sender" placeholder="Your Name*">
+	</div>
+		</div>
+<div class="form-group">
+	<div class="col-sm-10">
+<input type="checkbox" name="vehicle" value="terms" required> I agree to the <a href="/./terms.html"> Terms of Use</a><br>
+	</div>
+	</div>
+<div class="form-group">
+	<div class="col-sm-10">		
+<input type="submit" class="btn btn-warning btn-lg" name="troll" value="Troll" data-trigger="hover" data-toggle="popover"  data-placement="top" title="Troll" data-content="Troll your friends if they support the candidate you selected, and need to learn a thing or two!">
+<input type="submit" class="btn btn-success btn-lg" name="applaud" value="Applaud" data-trigger="hover" data-toggle="popover"  data-placement="top" title="Applaud" data-content="Applaud your friends if they know the candidate you selected is a joke!">
+	</div>
+	</div>	
+
+<br><br><br>*We need your name to comply with spam regulations and inform your friend who is sending the attack.
+<br><br>
+US numbers only please. Others coming soon.
+	
+
+
+
+
+</form>
     
    <footer>
             <div class="row">
@@ -100,7 +139,13 @@
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+</script>
 
 </body>
 
