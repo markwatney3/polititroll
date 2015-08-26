@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	
+
 
 <head>
     <meta charset="utf-8">
@@ -10,142 +10,146 @@
     <meta name="author" content="">
 
     <title>POLITITROLL</title>
-	
-	
-    
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/maskedinput.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover();
+        });
+    </script>
+    <script type="text/javascript">
+        jQuery(function($) {
+              $.mask.definitions['~']='[+-]';
+              $('#phone').mask('(999) 999-9999');
+           });
+    </script>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!--Custom CSS 
     <link href="css/thumbnail-gallery.css" rel="stylesheet"> -->
 </head>
-    
+
 <body>
-        <div class="container">
-        <div class="row">
 
-            <div class="row text-center">
-                <a class="img-circle" href="#">
-                    <img src="homeimage/LOGO.jpg" class="center-block img-responsive" alt="">
-                </a>
-            </div>
-            
-            <div class="col-lg-12">
-                <h1 class="page-header"></h1>
-            </div>
-            
-            <div class="col-lg-4 col-sm-6 text-center">
-                <a class="img-circle" href="#">
-                    <img class="img-circle img-responsive img-center" src="homeimage/trump.png" alt="">
-                </a>
-            </div>
-             <div class="col-lg-4 col-sm-6 text-center">
-                <a class="img-circle" href="#">
-                    <img class="img-circle img-responsive img-center" src="homeimage/clinton.png" alt="">
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <a class="img-circle" href="#">
-                    <img class="img-circle img-responsive img-center" src="homeimage/jeb.png" alt="">
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <a class="img-circle" href="#">
-                    <img class="img-circle img-responsive img-center" src="homeimage/bernie.png" class="img-circle" alt="">
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <a class="img-circle" href="#">
-                    <img class="img-circle img-responsive img-center" src="homeimage/carson.png" alt="">
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <a class="img-circle" href="#">
-                    <img class="img-circle img-responsive img-center" src="homeimage/rand.png" alt="">
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <a class="img-circle" href="#">
-                    <img class="img-circle img-responsive img-center" src="homeimage/rubio.png" alt="">
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <a class="img-circle" href="#">
-                    <img class="img-circle img-responsive img-center" src="homeimage/chrischristie.png" alt="">
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-                <a class="img-circle" href="#">
-                    <img class="img-circle img-responsive img-center" src="homeimage/cruzz.png" alt="">
-                </a>
-            </div>
-           
+<div class="container">
+    <div class="row">
+
+        <div class="row text-center">
+            <a class="img-circle" href="#">
+                <img src="homeimage/LOGO.jpg" class="center-block img-responsive" alt="">
+            </a>
         </div>
-<!--
-         <div class="container ">
-         <button type="button" class="btn btn-primary btn-lg">TROLL</button>
-            </div>
--->
-        <hr>
-           </br>
-            </br>
-	
-<form class="form-horizontal" action="trollBlast.php" method="post">
 
-<div class="form-group">
-	<div class="col-sm-10">
-<input type="text" name="phone" placeholder="Phone Number">
-	</div>
-</div>
-	<div class="form-group">
-<div class="col-sm-10">
-<input type="text" name="sender" placeholder="Your Name*">
-	</div>
-		</div>
-<div class="form-group">
-	<div class="col-sm-10">
-<input type="checkbox" name="vehicle" value="terms" required> I agree to the <a href="/./terms.html"> Terms of Use</a><br>
-	</div>
-	</div>
-<div class="form-group">
-	<div class="col-sm-10">		
-<input type="submit" class="btn btn-warning btn-lg" name="troll" value="Troll" data-trigger="hover" data-toggle="popover"  data-placement="top" title="Troll" data-content="Troll your friends if they support the candidate you selected, and need to learn a thing or two!">
-<input type="submit" class="btn btn-success btn-lg" name="applaud" value="Applaud" data-trigger="hover" data-toggle="popover"  data-placement="top" title="Applaud" data-content="Applaud your friends if they know the candidate you selected is a joke!">
-	</div>
-	</div>	
+        <div class="col-lg-12">
+            <h1 class="page-header"></h1>
+        </div>
 
-<br><br><br>*We need your name to comply with spam regulations and inform your friend who is sending the attack.
-<br><br>
-US numbers only please. Others coming soon.
-	
-
-
-
-
-</form>
-    
-   <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Polititroll</p>
-                </div>
-            </div>
-        </footer>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a class="img-circle" href="#">
+                <img class="img-circle img-responsive img-center" src="homeimage/trump.png" alt="">
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a class="img-circle" href="#">
+                <img class="img-circle img-responsive img-center" src="homeimage/clinton.png" alt="">
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a class="img-circle" href="#">
+                <img class="img-circle img-responsive img-center" src="homeimage/jeb.png" alt="">
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a class="img-circle" href="#">
+                <img class="img-circle img-responsive img-center" src="homeimage/bernie.png" alt="">
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a class="img-circle" href="#">
+                <img class="img-circle img-responsive img-center" src="homeimage/carson.png" alt="">
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a class="img-circle" href="#">
+                <img class="img-circle img-responsive img-center" src="homeimage/rand.png" alt="">
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a class="img-circle" href="#">
+                <img class="img-circle img-responsive img-center" src="homeimage/rubio.png" alt="">
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a class="img-circle" href="#">
+                <img class="img-circle img-responsive img-center" src="homeimage/chrischristie.png" alt="">
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a class="img-circle" href="#">
+                <img class="img-circle img-responsive img-center" src="homeimage/cruzz.png" alt="">
+            </a>
+        </div>
 
     </div>
-    <!-- /.container -->
+    <!--
+             <div class="container ">
+             <button type="button" class="btn btn-primary btn-lg">TROLL</button>
+                </div>
+    -->
+    <hr>
+    <br>
+    <br>
+    <form class="form-horizontal" action="trollBlast.php" method="post">
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+        <div class="form-group">
+            <div class="col-sm-2">
+                <input type="text" id="phone" class="form-control" name="phone" placeholder="Phone Number" required
+                       title="enter valid cell #">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-2">
+                <input type="text" class="form-control" name="sender" placeholder="Your Name*" pattern=".{3,25}"
+                       required title="must be at least 3 characters">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-10">
+                <input type="checkbox" name="vehicle" value="terms" required> I agree to the <a href="/./terms.html">
+                Terms of Use</a><br>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-10">
+                <input type="submit" class="btn btn-warning btn-lg" name="troll" value="Troll" data-trigger="hover"
+                       data-toggle="popover" data-placement="top" title="Troll"
+                       data-content="Troll your friends if they support the candidate you selected, and need to learn a thing or two!">
+                <input type="submit" class="btn btn-success btn-lg" name="applaud" value="Applaud" data-trigger="hover"
+                       data-toggle="popover" data-placement="top" title="Applaud"
+                       data-content="Applaud your friends if they know the candidate you selected is a joke!">
+            </div>
+        </div>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.js"></script>
+        <br><br><br>*We need your name to comply with spam regulations and inform your friend who is sending the attack.
+        <br><br>
+        US numbers only please. Others coming soon.
+    </form>
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Polititroll</p>
+            </div>
+        </div>
+    </footer>
 
-<script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover(); 
-});
-</script>
+</div>
+<!-- /.container -->
+
 
 </body>
 
