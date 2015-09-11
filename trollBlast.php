@@ -19,9 +19,17 @@
 require '/home/ubuntu/vendor/autoload.php';
 require 'connectionString.php';
 
+function clean($string) {
+   $string = str_replace(' ', '', $string); // Removes Spaces
+	 $string = str_replace('-', '', $string); // Removes hyphens
+
+   return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+}
+
 $senderName = $_POST["sender"];
 $candidate = $_POST["candidate"];
-$phoneNumber = $_POST["phone"];
+$phoneNumber = clean($_POST["phone"]);
+
 
 if ($_POST["troll"] == "Troll") {
 	$troll = 1;
@@ -35,17 +43,19 @@ else if ($_POST["applaud"] == "Applaud"){
 $sql= "SELECT handle, carrier, stop FROM Carrier WHERE phone_number = ".$phoneNumber;
 $result = $conn->query($sql);
 
-
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         $targetEmail = $row["handle"];
+		
 		$carrier = $row["carrier"];
 		$stop = $row["stop"];
+	
     }
 //	echo "record found in db";
 //	echo $carrier;
 
+	
 } else {
    $numberNotFound = true;
 }
@@ -82,7 +92,26 @@ if ($conn->query($sql) === TRUE) {
 
 }
 
-$memesList = array("0.jpg", "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg", "13.jpg", "14.jpg");
+
+$sql = "SELECT Content.filename FROM Content INNER JOIN Candidate ON Content.candidate_id = Candidate.cand_id WHERE Candidate.candidate = "."'".$candidate."'".";";
+$result = $conn->query($sql);
+
+$memesList = array();
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+		
+		array_push($memesList, $row["filename"]);
+
+    }
+}
+
+
+
+
+
+//$memesList = array("0.jpg", "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg", "13.jpg", "14.jpg");
 //compiles a list of the filepaths of the memes that match the candidate
 shuffle($memesList);
 
@@ -101,14 +130,30 @@ try{
 		$email->Subject   = "Polititroll";
 		$email->AddAddress( $targetEmail );
 		$email->Body      = "You are being #Polititrolled by your friend ".$senderName."! Polititroll them back at polititroll.com ! Or, reply STOP if you do not wish to recieve trolls from ".$senderName." or your other friends after this blast.";
+		
+		$email -> Send();
+		
+		
+		for($i=0; $i<5; $i++){
+			
+			$email = new PHPMailer();
 
-		for($i=0; $i<2; $i++){
+//		if ($carrier == "ATT Mobility"){
 
+			$email->SetFrom($senderName."@polititroll.com");
+			$email->AddReplyTo($senderName."@polititroll.com", $senderName);
+			$email->FromName  = $senderName;
+//		}
+			$email->Subject   = "Polititroll";
+			$email->AddAddress( $targetEmail );
 			$file_to_attach = 'images/'.$memesList[$i];
+			$email->Body      = $candidate." Troll!";
 			$email->AddAttachment($file_to_attach);
+			$email->Send();
+			
 		}
 
-		$email->Send();
+		
 
 		$sql = "INSERT INTO Log (phone_number, sender_name, candidate, troll) VALUES ('$phoneNumber', '$senderName', '$candidate','$troll')";
 
