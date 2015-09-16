@@ -48,57 +48,64 @@
         <div class="col-lg-12">
             <h1 class="page-header"></h1>
         </div>
-<form action="form.html" method="post" id="form1">
-  First name: <input type="text" name="fname"><br>
-  Last name: <input type="text" name="lname"><br>
-</form>
+
+	<script>
+function setCandidate(candName) {
+
+	var candidate = candName;
+	alert(candidate);
+}
+</script>
 
 <button type="submit" form="form1" value="Submit"></button>
 		
 		
         <div class="col-lg-4 col-sm-6 text-center">
             <a class="img-circle" href="form.html">
-                <img class="img-circle img-responsive img-center" src="homeimage/trump.png" alt="">
+                <img class="img-circle img-responsive img-center" src="homeimage/trump.png" alt="" onclick="setCandidate('Trump')">
+            </a>
+
+
+
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a class="img-circle" href="form.html">
+                <img class="img-circle img-responsive img-center" src="homeimage/clinton.png" alt="" onclick="setCandidate('Clinton')">
             </a>
         </div>
         <div class="col-lg-4 col-sm-6 text-center">
             <a class="img-circle" href="form.html">
-                <img class="img-circle img-responsive img-center" src="homeimage/clinton.png" alt="">
+                <img class="img-circle img-responsive img-center" src="homeimage/jeb.png" alt="" onclick="setCandidate('Jeb')">
             </a>
         </div>
         <div class="col-lg-4 col-sm-6 text-center">
             <a class="img-circle" href="form.html">
-                <img class="img-circle img-responsive img-center" src="homeimage/jeb.png" alt="">
+                <img class="img-circle img-responsive img-center" src="homeimage/bernie.png" alt="" onclick="setCandidate('Sanders')">
             </a>
         </div>
         <div class="col-lg-4 col-sm-6 text-center">
             <a class="img-circle" href="form.html">
-                <img class="img-circle img-responsive img-center" src="homeimage/bernie.png" alt="">
+                <img class="img-circle img-responsive img-center" src="homeimage/carson.png" alt="" onclick="setCandidate('Carson')">
             </a>
         </div>
         <div class="col-lg-4 col-sm-6 text-center">
             <a class="img-circle" href="form.html">
-                <img class="img-circle img-responsive img-center" src="homeimage/carson.png" alt="">
+                <img class="img-circle img-responsive img-center" src="homeimage/rand.png" alt="" onclick="setCandidate('Paul')">
             </a>
         </div>
         <div class="col-lg-4 col-sm-6 text-center">
             <a class="img-circle" href="form.html">
-                <img class="img-circle img-responsive img-center" src="homeimage/rand.png" alt="">
+                <img class="img-circle img-responsive img-center" src="homeimage/rubio.png" alt="" onclick="setCandidate('Rubio')">
             </a>
         </div>
         <div class="col-lg-4 col-sm-6 text-center">
             <a class="img-circle" href="form.html">
-                <img class="img-circle img-responsive img-center" src="homeimage/rubio.png" alt="">
+                <img class="img-circle img-responsive img-center" src="homeimage/chrischristie.png" alt="" onclick="setCandidate('Christie')">
             </a>
         </div>
         <div class="col-lg-4 col-sm-6 text-center">
             <a class="img-circle" href="form.html">
-                <img class="img-circle img-responsive img-center" src="homeimage/chrischristie.png" alt="">
-            </a>
-        </div>
-        <div class="col-lg-4 col-sm-6 text-center">
-            <a class="img-circle" href="form.html">
-                <img class="img-circle img-responsive img-center" src="homeimage/cruzz.png" alt="">
+                <img class="img-circle img-responsive img-center" src="homeimage/cruzz.png" alt="" onclick="setCandidate('Cruz')">
             </a>
         </div>
 
