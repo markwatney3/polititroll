@@ -140,8 +140,8 @@ try{
 
 //		if ($carrier == "ATT Mobility"){
 
-			$email->SetFrom($senderName."@polititroll.com");
-			$email->AddReplyTo($senderName."@polititroll.com", $senderName);
+			$email->SetFrom("ubuntu@polititroll.com");
+			$email->AddReplyTo("ubuntu@polititroll.com", $senderName);
 			$email->FromName  = $senderName;
 //		}
 			$email->Subject   = "Polititroll";
