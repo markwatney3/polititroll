@@ -117,13 +117,19 @@ shuffle($memesList);
 
 
 try{
-	if ($stop=='n'){
+	if ($stop=='y'){
+		
+	 echo "Sorry, the user that you have selected has opted out of receiving Polititrolls.";
+
+}
+	else{
+	
 	$email = new PHPMailer();
 
 //		if ($carrier == "ATT Mobility"){
 
-			$email->SetFrom($senderName."@polititroll.com");
-			$email->AddReplyTo($senderName."@polititroll.com", $senderName);
+			$email->SetFrom("ubuntu@polititroll.com");
+			$email->AddReplyTo("ubuntu@polititroll.com", $senderName);
 			$email->FromName  = $senderName;
 //		}
 
@@ -140,8 +146,8 @@ try{
 
 //		if ($carrier == "ATT Mobility"){
 
-			$email->SetFrom($senderName."@polititroll.com");
-			$email->AddReplyTo($senderName."@polititroll.com", $senderName);
+			$email->SetFrom("ubuntu@polititroll.com");
+			$email->AddReplyTo("ubutnu@polititroll.com", $senderName);
 			$email->FromName  = $senderName;
 //		}
 			$email->Subject   = "Polititroll";
@@ -167,9 +173,8 @@ try{
 
 	}
 
-	else echo "Sorry, the user that you have selected has opted out of receiving Polititrolls.";
-
 }
+	
 catch (phpmailerException $e) {
  	echo $e->errorMessage();
 }
@@ -180,6 +185,10 @@ catch (Exception $e) {
 
 ?>
 <script type='text/javascript' src='//eclkmpbn.com/adServe/banners?tid=56059_86182_0&type=shadowbox&size=800x440'></script>
+	
+	
+	<a href="index.html">Send another!</a>
+	
 	</BODY>
 
 
