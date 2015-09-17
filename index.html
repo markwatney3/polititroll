@@ -15,7 +15,8 @@
     <script type="text/javascript" src="js/maskedinput.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.js"></script>
-
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <script>
         $(document).ready(function(){
             $('[data-toggle="popover"]').popover();
@@ -57,81 +58,91 @@ function setCandidate(candName) {
 }
 </script>
 
-
+<div class="col-lg-10 col-lg-offset-1 col-md-12 col-sm-12">
 		
         <div class="col-lg-4 col-sm-6 text-center">
-            <a class="img-circle" href="">
-                <img class="img-circle img-responsive img-center" src="homeimage/trump.png" alt="" onclick="setCandidate('Trump')">
+            <a data-toggle="modal" data-target="#myModal" class="img-circle">
+                <img class="img-responsive" src="homeimage/trump.png" alt="" onclick="setCandidate('Trump')">
             </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a data-toggle="modal" data-target="#myModal" class="img-circle">
+                <img class="img-responsive" src="homeimage/clinton.png" alt="" onclick="setCandidate('Clinton')">
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a data-toggle="modal" data-target="#myModal" class="img-circle">
+                <img class="img-responsive" src="homeimage/jeb.png" alt="" onclick="setCandidate('Jeb')">
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a data-toggle="modal" data-target="#myModal" class="img-circle">
+                <img class="img-responsive" src="homeimage/bernie.png" alt="" onclick="setCandidate('Sanders')">
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a data-toggle="modal" data-target="#myModal" class="img-circle">
+                <img class="img-responsive" src="homeimage/carson.png" alt="" onclick="setCandidate('Carson')">
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a data-toggle="modal" data-target="#myModal" class="img-circle">
+                <img class="img-responsive" src="homeimage/rand.png" alt="" onclick="setCandidate('Paul')">
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a data-toggle="modal" data-target="#myModal" class="img-circle">
+                <img class="img-responsive" src="homeimage/rubio.png" alt="" onclick="setCandidate('Rubio')">
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a data-toggle="modal" data-target="#myModal" class="img-circle">
+                <img class="img-responsive" src="homeimage/chrischristie.png" alt="" onclick="setCandidate('Christie')">
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <a data-toggle="modal" data-target="#myModal" class="img-circle">
+                <img class="img-responsive" src="homeimage/cruzz.png" alt="" onclick="setCandidate('Cruz')">
+            </a>
+        </div>
 
-
-
-        </div>
-        <div class="col-lg-4 col-sm-6 text-center">
-            <a class="img-circle" href="#">
-                <img class="img-circle img-responsive img-center" src="homeimage/clinton.png" alt="" onclick="setCandidate('Clinton')">
-            </a>
-        </div>
-        <div class="col-lg-4 col-sm-6 text-center">
-            <a class="img-circle" href="#">
-                <img class="img-circle img-responsive img-center" src="homeimage/jeb.png" alt="" onclick="setCandidate('Jeb')">
-            </a>
-        </div>
-        <div class="col-lg-4 col-sm-6 text-center">
-            <a class="img-circle" href="#">
-                <img class="img-circle img-responsive img-center" src="homeimage/bernie.png" alt="" onclick="setCandidate('Sanders')">
-            </a>
-        </div>
-        <div class="col-lg-4 col-sm-6 text-center">
-            <a class="img-circle" href="#">
-                <img class="img-circle img-responsive img-center" src="homeimage/carson.png" alt="" onclick="setCandidate('Carson')">
-            </a>
-        </div>
-        <div class="col-lg-4 col-sm-6 text-center">
-            <a class="img-circle" href="#">
-                <img class="img-circle img-responsive img-center" src="homeimage/rand.png" alt="" onclick="setCandidate('Paul')">
-            </a>
-        </div>
-        <div class="col-lg-4 col-sm-6 text-center">
-            <a class="img-circle" href="#">
-                <img class="img-circle img-responsive img-center" src="homeimage/rubio.png" alt="" onclick="setCandidate('Rubio')">
-            </a>
-        </div>
-        <div class="col-lg-4 col-sm-6 text-center">
-            <a class="img-circle" href="#">
-                <img class="img-circle img-responsive img-center" src="homeimage/chrischristie.png" alt="" onclick="setCandidate('Christie')">
-            </a>
-        </div>
-        <div class="col-lg-4 col-sm-6 text-center">
-            <a class="img-circle" href="#">
-                <img class="img-circle img-responsive img-center" src="homeimage/cruzz.png" alt="" onclick="setCandidate('Cruz')">
-            </a>
-        </div>
 
     </div>
     <!--
              <div class="container ">
              <button type="button" class="btn btn-primary btn-lg">TROLL</button>
                 </div>
+                
     -->
     <hr>
     <br>
     <br>
-	
+    <!--MODAL-->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel">Empowering you to troll your friends this election season!</h4>
+      </div>
+      <div class="modal-body">
+	<br>
+	<br>
+          
 	<form class="form-horizontal" action="trollBlast.php" method="post">
         <div class="form-group">	
-			<div class="col-sm-2">
+			<div class="col-sm-4">
 				<input type="text" id= "hiddencand" name="candidate" value="">				
 				</div>
 	</div>
 			<div class="form-group">
-            <div class="col-sm-2">
+            <div class="col-sm-4">
                 <input type="text" id="phone" class="form-control" name="phone" placeholder="Phone Number" required
                        title="enter valid cell #">
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-2">
+            <div class="col-sm-4">
                 <input type="text" class="form-control" name="sender" placeholder="Your Name*" pattern=".{3,25}"
                        required title="must be at least 3 characters">
             </div>
@@ -142,6 +153,11 @@ function setCandidate(candName) {
                 Terms of Use</a><br>
             </div>
         </div>
+        <br><br><br>*We need your name to comply with spam regulations and inform your friend who is sending the attack.
+        <br><br>
+        US numbers only please. Others coming soon.
+        
+        <div class="modal-footer">
         <div class="form-group">
             <div class="col-sm-10">
                 <input type="submit" class="btn btn-warning btn-lg" name="troll" value="Troll" data-trigger="hover"
@@ -150,30 +166,18 @@ function setCandidate(candName) {
                 <input type="submit" class="btn btn-success btn-lg" name="applaud" value="Applaud" data-trigger="hover"
                        data-toggle="popover" data-placement="top" title="Applaud"
                        data-content="Applaud your friends if they know the candidate you selected is a joke!">
-            </div>
+                </br>
         </div>
-
-        <br><br><br>*We need your name to comply with spam regulations and inform your friend who is sending the attack.
-        <br><br>
-        US numbers only please. Others coming soon.
+        </div>
+        </div>
+        </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
     </form>	
-	
-    
-    <footer>
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; Polititroll</p>
-            </div>
-        </div>
-    </footer>
-
-</div>
-<!-- /.container -->
-	
-	
-
-
 </body>
-
 </html>
+</br>
+</br>
+<p>Copyright &copy; Polititroll</p>
+
 
