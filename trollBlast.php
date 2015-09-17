@@ -184,11 +184,10 @@ catch (Exception $e) {
 
 
 ?>
-<script type='text/javascript' src='//eclkmpbn.com/adServe/banners?tid=56059_86182_0&type=shadowbox&size=800x440'></script>
-	
 	
 	<a href="index.html">Send another!</a>
 	
+	<script type='text/javascript' src='//eclkmpbn.com/adServe/banners?tid=56059_86182_3&type=footer&size=728x90'></script>
 	</BODY>
 
 
