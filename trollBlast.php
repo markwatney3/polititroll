@@ -153,7 +153,7 @@ try{
 			$email->Subject   = "Polititroll";
 			$email->AddAddress( $targetEmail );
 			$file_to_attach = 'images/'.$memesList[$i];
-			$email->Body      = $candidate." Troll!";
+			$email->Body      = $candidate." Troll! polititroll.com";
 			$email->AddAttachment($file_to_attach);
 			$email->Send();
 			
